@@ -21,6 +21,7 @@
             <props>
                 <prop key="index.htm">indexController</prop>
                 <prop key="formulario.htm">formularioController</prop>
+                <prop key="contacto.htm">contactoController</prop>
             </props>
         </property>
     </bean>
@@ -38,5 +39,6 @@
           p:viewName="index" />
     
     <bean name="formularioController" class="controller.FormularioController"/>
+    <bean name="contactoController" class="controller.ContactoController"/>
 
 </beans>
