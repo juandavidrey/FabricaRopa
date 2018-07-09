@@ -29,7 +29,7 @@
                 La fábrica ropa rey es un sitio para caballeros con una mentalidad del hombre elegante. 
                 Nos encanta la presentación, el buen vestir, pero más importante la manera en que tú 
                 lo combinas para crear tu propio estilo. No creemos que hay una sola manera de lucir 
-                elegante pero sí tenemos ideas de cómo hacerlo.<br>
+                elegante pero sí tenemos ideas de cómo hacerlo.<br><br>
 
                 En www.roparey.com podrás explorar las novedades que nos llegan a diario. 
                 También encontrarás una guía interactiva de las últimas tendencias y como tú las puedes interpretar. 
@@ -39,10 +39,10 @@
         </div>
        
 
-        <a href="formulario.htm"><h2>Formulario</h2></a>
+<!--        <a href="formulario.htm"><h2>Formulario</h2></a>
         <hr />
         <a href="javascript:void(0);" onclick="hola();">haz clic</a>
-        <button href="javascript:void(0);" onclick="hola();">botón</button>
+        <button href="javascript:void(0);" onclick="hola();">botón</button>-->
 
     </body>
 </html>

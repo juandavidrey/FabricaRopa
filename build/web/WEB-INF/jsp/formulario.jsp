@@ -3,22 +3,22 @@
     Created on : Jul 6, 2018, 11:56:16 PM
     Author     : jdavi
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <script src="<c:url value="/resource/js/funciones.js" />"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <title>Fábrica de Ropa Rey</title>
     </head>
     <body>
+        <%@include file="navbar.jsp" %>
         <div class="container">
             <div class="row">
                 <h1>Ingrese sus datos</h1>
-                <form:form method="POST" commandName="producto">
+                <form:form method="POST" commandName="productos">
 
                     <form:errors path="*" element="div" cssClass="alert alert-danger" />
 
@@ -44,26 +44,36 @@
 
                     <p>
                         <form:label path="productos">Camisas formales</form:label>
-                        <input type="number" value="cantidadCamisas" class="form-control" />
-                    </p>
+                            <input type="number" placeholder="Min: 0, max: 5"
+                                   min="0" max="5"
+                                   value="cantidadCamisas" class="form-control" />
+                        </p>
 
-                    <p>
+                        <p>
                         <form:label path="productos">Pantalones formales</form:label>
-                        <input type="number" value="cantidadPantalones" class="form-control" />
-                    </p>     
+                            <input type="number" placeholder="Min: 0, max: 5"
+                                   min="0" max="5"
+                                   value="cantidadPantalones" class="form-control" />
+                        </p>     
 
-                    <p>
+                        <p>
                         <form:label path="productos">Chaquetas</form:label>
-                        <input type="number" value="cantidadChaquetas" class="form-control" />
-                    </p>
+                            <input type="number" placeholder="Min: 0, max: 5"
+                                   min="0" max="5"
+                                   value="cantidadChaquetas" class="form-control" />
+                        </p>
 
-                    <hr />
-                    <input type="submit" value="Enviar" class="form-control" />
+                        <hr />
+                        <input type="submit" href="javascript:void(0);" 
+                               onsubmit="return confirm('El precio del transporte no está incluido y dependerá del lugar de \n\
+    entrega, este se deberá cancelar junto con el valor del pedido en el momento \n\
+    de la entrega.');"
+                               value="Enviar" class="form-control" />
                 </form:form>
 
             </div>
         </div>
-        <button href="javascript:void(0);" onclick="hola();">botón</button>
+        <button href="javascript:void(0);" onclick="informacion();">botón</button>
 
     </body>
 </html>

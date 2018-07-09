@@ -29,8 +29,15 @@ public class ValidarProducto implements Validator {
             errors.rejectValue("tipoIdentificacion", "required.tipoIdentificacion", "Seleccione un tipo de identificacion");
         }
         
-        if (producto.getProductos() == 0) {
-            errors.rejectValue("productos", "required.productos", "Seleccione un producto");
+        int cantidad = producto.getCantidadCamisas() + producto.getCantidadChaquetas()
+                + producto.getCantidadPantalones();
+        
+        if(cantidad>5){
+            errors.reject("No puede pedir más de 5 productos en un solo pedido");
+        }else{
+            if (cantidad==0) {
+                errors.reject("Seleccione al menos un producto para comprar");
+            }
         }
 
     }

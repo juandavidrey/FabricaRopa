@@ -20,7 +20,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @RequestMapping("formulario.htm")
 public class FormularioController {
 
-    private ValidarProducto validarProducto;
+    private final ValidarProducto validarProducto;
 
     public FormularioController() {
         this.validarProducto = new ValidarProducto();
@@ -33,8 +33,7 @@ public class FormularioController {
         mav.addObject("productos", new Productos());
         return mav;
     }
-
-    //recibimos y validamos los datos de nuestro formulario
+    
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView form(
             @ModelAttribute("productos") Productos p,
@@ -43,34 +42,31 @@ public class FormularioController {
     ) {
         this.validarProducto.validate(p, result);
         if (result.hasErrors()) {
-            //acá volvemos al formulario
-            //porque los datos ingresados por el usuario
-            //no son correctos es decir que se ejecutó la validación
             ModelAndView mav = new ModelAndView();
             mav.setViewName("formulario");
             mav.addObject("productos", new Productos());
             return mav;
         } else {
-            //acá entramos si el usuario ingresó bien los datos
             ModelAndView mav = new ModelAndView();
             mav.setViewName("factura");
             mav.addObject("nombre", p.getNombre());
             mav.addObject("tipoIdentificacion", p.getTipoIdentificacion());
-            mav.addObject("productos", p.getProductos());
             mav.addObject("numeroIdentificacion", p.getNumeroIdentificacion());
+            mav.addObject("cantidadCamisas", p.getCantidadCamisas());
+            mav.addObject("cantidadChaquetas", p.getCantidadChaquetas());
+            mav.addObject("cantidadPantalones", p.getCantidadPantalones());
             return mav;
         }
     }
-
-    //método para poblar nuestro select
-    @ModelAttribute("listaProductos")
-    public Map<String, String> listaProductos() {
-        Map<String, String> listaProducto = new LinkedHashMap<>();
-        listaProducto.put("1", "Camisa formal");
-        listaProducto.put("2", "Pantalón formal");
-        listaProducto.put("3", "Chaqueta");
-        return listaProducto;
-    }
+    
+//    @ModelAttribute("listaProductos")
+//    public Map<String, String> listaProductos() {
+//        Map<String, String> listaProducto = new LinkedHashMap<>();
+//        listaProducto.put("1", "Camisa formal");
+//        listaProducto.put("2", "Pantalón formal");
+//        listaProducto.put("3", "Chaqueta");
+//        return listaProducto;
+//    }
 
     @ModelAttribute("listaTipoIdentificacion")
     public Map<String, String> listaTipoIdentificacion() {

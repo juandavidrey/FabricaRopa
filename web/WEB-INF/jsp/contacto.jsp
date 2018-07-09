@@ -41,7 +41,7 @@
             </table>
         </div>
         
-        <div class="content">
+        <div class="container-fluid">
             <p class="lead text-left">
                 Aplicación web desarrollada con el framework <i>Spring Web MVC</i>, describe una tienda online
                 para una fábrica de ropa para caballero, donde se narra información de la misma y se realizan pedidos.
